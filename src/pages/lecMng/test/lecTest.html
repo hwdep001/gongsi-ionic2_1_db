@@ -1,0 +1,82 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>TEST - {{cat.data().name}}</ion-title>
+  </ion-navbar>
+
+  <ion-grid style="padding: 0 0 0 21px; height: 44px; background-color: #e9ebee;">
+    <ion-row>
+      <ion-col col-100 style="padding: 0px;">
+        <ion-buttons end>
+          <button ion-button item-right (click)="startTest()" [disabled]="isStartBtn == false">
+            시작
+          </button>
+        </ion-buttons>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-header>
+
+<ion-content class="icontent margin-100">
+
+  <ion-list class="ilist">
+    <ion-list-header class="iheader" no-lines>
+      Setting
+    </ion-list-header>
+    <ion-item class="ilist-item">
+      <ion-label>Type</ion-label>
+      <ion-select [(ngModel)]="selectTestType" okText="Select">
+        <ion-option *ngFor="let testType of testTypes" value="{{testType.value}}">{{testType.name}}</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item class="ilist-item">
+      <ion-label>Level</ion-label>
+      <ion-select [(ngModel)]="selectTestLvs" okText="Select" multiple="true" (ionChange)="checkStartBtn()">
+        <ion-option *ngFor="let testLv of testLvs" value="{{testLv.value}}">{{testLv.name}}</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item class="ilist-item">
+      <ion-label>Count</ion-label>
+      <ion-select [(ngModel)]="selectTestCnt" okText="Select" >
+        <ion-option *ngFor="let testCnt of testCnts" value="{{testCnt.value}}">{{testCnt.value}}</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item class="ilist-item">
+      <ion-label>Select lecture</ion-label>
+      <ion-select [(ngModel)]="selectLecType" okText="Select" (ionChange)="checkStartBtn()">
+        <ion-option value="0">Checkbox</ion-option>
+        <ion-option value="1">Range</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-list-header class="iheader" no-lines>
+      <ion-note item-left>Lectures</ion-note>
+      <ion-note item-right *ngIf="selectLecType == 1">{{lecRange.lower}} ~ {{lecRange.upper}}</ion-note>
+    </ion-list-header>
+    <ng-container *ngIf="selectLecType == 0">
+    <ion-item class="ilist-item cb-all">
+      <ion-label>All</ion-label>
+      <ion-checkbox [(ngModel)]="cbA" (click)="initCheckbox(cbA)" style="padding-top: 14px; padding-bottom: 14px;"></ion-checkbox>
+    </ion-item>
+    <ion-item class="ilist-item" *ngFor="let lec of lecs; let i = index">
+      <ion-label>{{lec.data().name}}</ion-label>
+      <ion-checkbox [(ngModel)]="cbs[i]" (click)="checkCb(cbs[i])" (ionChange)="checkStartBtn()"></ion-checkbox>
+    </ion-item>
+    </ng-container>
+
+    <ng-container *ngIf="selectLecType == 1">
+      <ion-item class="ilist-item">
+        <ion-range dualKnobs="true" pin="true" min="1" [max]="lecs.length" [(ngModel)]="lecRange" disabled="false">
+          <ion-label range-left>1</ion-label>
+          <ion-label range-right>{{lecs.length}}</ion-label>
+        </ion-range>
+      </ion-item>
+    </ng-container>
+  </ion-list>
+
+</ion-content>

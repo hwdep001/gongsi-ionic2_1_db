@@ -1,0 +1,88 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{cat.data().name}}</ion-title>
+
+    <!-- type == 1 -->
+    <ion-buttons end *ngIf="type == 1" (click)="changeIsTest()" >
+      <button ion-button icon-only>
+        <ion-note *ngIf="isTest == false">Test</ion-note>
+        <ion-note *ngIf="isTest == true">Cancel</ion-note>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+  <!-- type == 1 && isTest == true -->
+  <ion-grid *ngIf="isTest == true" style="padding: 0 0 0 21px; height: 44px;">
+    <ion-row>
+      <ion-col col-20 style="padding: 0px;">
+        <!-- <ion-checkbox [(ngModel)]="cbA" (click)="initCheckbox(cbA)" style="padding-top: 14px; padding-bottom: 14px;"></ion-checkbox> -->
+      </ion-col>
+      <ion-col col-80 style="padding: 0px;">
+        <ion-buttons end>
+          <button ion-button item-right (click)="startTest()" >
+            선택
+          </button>
+        </ion-buttons>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-header>
+
+<ion-content class="icontent" [ngClass]="{'margin-100': isTest == true}" >
+
+  <ion-list class="ilist">
+
+    <!-- ▼▽▼ type == 1 && isTest == true -->
+    <ion-item class="ilist-item" *ngIf="isTest == true">
+      <ion-label>Type</ion-label>
+      <ion-select [(ngModel)]="selectTestType" okText="Select" >
+        <ion-option *ngFor="let testType of testTypes" value="{{testType.value}}">{{testType.name}}</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item class="ilist-item" *ngIf="isTest == true">
+      <ion-label>Level</ion-label>
+      <ion-select [(ngModel)]="selectTestLvs" okText="Select" multiple="true">
+        <ion-option *ngFor="let testLv of testLvs" value="{{testLv.value}}">{{testLv.name}}</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item class="ilist-item" *ngIf="isTest == true">
+      <ion-label>Count</ion-label>
+      <ion-select [(ngModel)]="selectTestCnt" okText="Select" >
+        <ion-option *ngFor="let testCnt of testCnts" value="{{testCnt.value}}">{{testCnt.value}}</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item class="ilist-item cursor" *ngIf="isTest == true">
+      <ion-label>All</ion-label>
+      <ion-checkbox [(ngModel)]="cbA" (click)="initCheckbox(cbA)" style="padding-top: 14px; padding-bottom: 14px;"></ion-checkbox>
+    </ion-item>
+    <!-- ▲△▲ type == 1 && isTest == true -->
+
+    <ion-item class="ilist-item cursor" *ngFor="let lec of lecs; let i = index">
+      <!-- default list -->
+      <div *ngIf="isTest == false" (click)="clickLec(lec)">{{lec.data().name}}</div>
+
+      <!-- ▼▽▼ type == 1 && isTest == true -->
+      <ion-label *ngIf="isTest == true">{{lec.data().name}}</ion-label>
+      <ion-checkbox *ngIf="isTest == true" [(ngModel)]="cbs[i]" (click)="checkCb(cbs[i])"></ion-checkbox>
+      <!-- ▲△▲ type == 1 && isTest == true -->
+    </ion-item>
+  </ion-list>
+
+  <!-- type == 1 && isTest == true -->
+  <!-- <ion-list class="ilist" *ngIf="isTest == true">
+    <ion-item class="ilist-item" >
+      Range Select
+      <ion-note item-end>{{lecRange.lower}} ~ {{lecRange.upper}}</ion-note>
+    </ion-item>
+    <ion-item class="ilist-item">
+      <ion-range dualKnobs="true" pin="true" min="1" [max]="lecs.length" [(ngModel)]="lecRange" disabled="false">
+        <ion-note range-left>Lecture</ion-note>
+      </ion-range>
+    </ion-item>
+  </ion-list> -->
+
+</ion-content>

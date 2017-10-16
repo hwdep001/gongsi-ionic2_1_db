@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Tab1 Page</ion-title>
+  </ion-navbar>
+</ion-header>
+  
+<ion-content padding>
+  <h3>Tab1 Page</h3>
+
+  <button ion-button (click)="createSubject()">테스트 subject 생성</button>
+  <button ion-button (click)="removeSubject()">테스트 subject 삭제</button>
+  <br>
+  <button ion-button (click)="createCategory()">테스트 category 생성</button>
+  <button ion-button (click)="removeCategory()">테스트 category 삭제</button>
+  <br>
+  <button ion-button (click)="createLecture()">테스트 lecture 생성</button>
+  <button ion-button (click)="removeLecture()">테스트 lecture 삭제</button>
+  <br>
+  <button ion-button (click)="createWord()">테스트 단어 생성</button>
+  <button ion-button (click)="removeWord()">테스트 단어 삭제</button>
+  <br>
+  <button ion-button (click)="createTestType()">테스트 testType 생성</button>
+  <button ion-button (click)="createWorldLevel()">테스트 test world level 생성</button>
+  <button ion-button (click)="createTestCnt()">테스트 test cnt 생성</button>
+  
+  <!--  -->
+  <br>
+  <button ion-button (click)="deleteLevel()">테스트 sqlite 단어 레벨 삭제</button>
+  <br>
+  <button ion-button (click)="createGss()">테스트 경선식 c 생성</button>
+  <button ion-button (click)="removeGss()">테스트 경선식 c 생성</button>
+
+</ion-content>

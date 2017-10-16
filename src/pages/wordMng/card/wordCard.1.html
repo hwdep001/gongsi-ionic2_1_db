@@ -1,0 +1,72 @@
+<!-- <ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>testCard Page</ion-title>
+  </ion-navbar>
+</ion-header>
+  
+<ion-content class="icontent">
+  
+  <div class="icontent-middle">
+    <ion-card class="icard" [ngClass]="'icard-border' + curLv">
+      <ion-row class="icard-header">
+        <ion-col align-self-center text-center *ngIf="bodyFlag == true" (click)="bodyFlag = !bodyFlag">
+          {{curWord.data().head1}}
+        </ion-col>
+      </ion-row>
+      <ion-row class="icard-content head"  
+                *ngIf="bodyFlag == false" (click)="bodyFlag = !bodyFlag">
+        <ion-col align-self-center text-center>
+            {{curWord.data().head1}} 
+        </ion-col>
+      </ion-row>
+      <ion-card-content class="icard-content body" align-self-center 
+                        *ngIf="bodyFlag == true" (click)="bodyFlag = !bodyFlag">
+        <pre>{{curWord.data().body1}}</pre>
+      </ion-card-content>
+      <ion-row class="icard-foot">
+          <ion-col col-20 class="foot-up" align-self-center text-center>
+            <button ion-button color="gray" clear small icon-start (click)="clickThumbs(1)">
+              <ion-icon name='thumbs-up'></ion-icon>
+            </button>
+          </ion-col>
+          <ion-col col-60 class="foot-desc-col" align-self-center text-center>
+            <ion-note class="foot-desc-note">
+              {{curWord.data().catName}}-{{curWord.data().lecName}}
+            </ion-note>
+          </ion-col>
+          <ion-col col-20 class="foot-down" align-self-center text-center>
+            <button ion-button color="gray" clear small icon-start (click)="clickThumbs(-1)">
+              <ion-icon name='thumbs-down'></ion-icon>
+            </button>
+          </ion-col>
+        </ion-row>
+    </ion-card>
+  </div>
+
+  <div class="icontent-foot">
+    <ion-item class="menu" no-lines>
+      <ion-grid>
+        <ion-row>
+          <ion-col col-40>
+            <button ion-button clear icon-start (click)="prevWord(curWord.data().num)" >
+              <ion-icon name='arrow-dropleft-circle'></ion-icon>
+            </button>
+          </ion-col>
+          <ion-col col-20 align-self-center>
+            <ion-note>
+              {{curWord.data().num}}/{{words.length}}
+            </ion-note>
+          </ion-col>
+          <ion-col col-40>
+            <button ion-button clear icon-start  (click)="nextWord(curWord.data().num)">
+              <ion-icon name='arrow-dropright-circle'></ion-icon>
+            </button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+  </div>
+</ion-content> -->

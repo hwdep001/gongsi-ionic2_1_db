@@ -1,0 +1,37 @@
+page-lecTest {
+    .icontent {
+
+        .ilist {
+
+            .iheader {
+                background-color: #e9ebee;
+                margin: 0px;
+
+                ion-note {
+                    color: #757575;
+                }
+            }
+            
+            .ilist-item {
+                // background-color: #e9ebee;
+
+                ion-note {
+                    color: black;
+                }
+            }
+
+            .cb-all {
+                max-height: 44px;
+            }
+        }
+    }
+
+    .margin-100 {
+        .fixed-content {margin-top: 100px !important;}
+        .scroll-content {margin-top: 100px !important;}
+    }
+
+    .cursor {
+        cursor: pointer;
+    }
+}

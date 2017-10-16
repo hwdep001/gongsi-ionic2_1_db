@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{cat.data().name}}</ion-title>
+
+    <!-- type == 1 -->
+    <ion-buttons end *ngIf="type == 1" (click)="moveLecTestPage()" >
+      <button ion-button icon-only>
+        <ion-note>Test</ion-note>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content class="icontent">
+
+  <ion-list class="ilist">
+    <ion-item class="ilist-item cursor" *ngFor="let lec of lecs; let i = index">
+      <div (click)="clickLec(lec)">{{lec.data().name}}</div>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

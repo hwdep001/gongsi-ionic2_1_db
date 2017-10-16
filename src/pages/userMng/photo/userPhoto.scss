@@ -1,0 +1,32 @@
+page-userPhoto {
+    
+    background-color: #0e0e0e;
+
+    button {
+
+        background-color: #0e0e0e;
+
+        ion-icon {
+            color: white;
+            zoom:1.5;
+            padding-top: 5px;
+            padding-left: 5px;
+        }
+    }
+
+    div {
+        background: #0e0e0e;
+        height: 100%;
+        text-align: center;
+
+        img {
+            position: absolute;  
+            top: 0;  
+            bottom: 0;  
+            left: 0;  
+            right: 0;  
+            margin: auto;
+        }
+    }
+}
+    

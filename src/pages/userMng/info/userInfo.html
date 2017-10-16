@@ -1,0 +1,90 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title *ngIf="type == 0" >유저 정보</ion-title>
+    <ion-title *ngIf="type == 1" >내 정보</ion-title>
+  </ion-navbar>
+</ion-header>
+  
+<ion-content class="icontent" scroll=false>
+  
+  <!-- type 1 -->
+  <ion-list class="ilist1" *ngIf="type == 1" >
+    <ion-list-header class="iheader" no-lines>
+      Info
+    </ion-list-header>
+    <ion-item class="iitem">UID
+      <ion-note class="inote" item-end>
+        {{user.uid}}
+      </ion-note>
+    </ion-item>
+    <ion-item class="iitem">Email
+      <ion-note class="inote" item-end>
+        {{user.email}}
+      </ion-note>
+    </ion-item>
+    <ion-item class="iitem">Display name
+      <ion-note class="inote" item-end>
+        {{user.name}}
+      </ion-note>
+    </ion-item>
+    <ion-item no-lines class="iitem">Creation date
+      <ion-note class="inote" item-end>
+        {{user.createDate}}
+      </ion-note>
+    </ion-item>
+
+    <ion-list-header class="iheader">
+      Config
+    </ion-list-header>
+    <ion-item class="iitem cursor" (click)="deleteWordLevel()">
+      <ion-note class="config">단어 레벨 초기화</ion-note>
+    </ion-item>
+    <ion-item class="iitem cursor" (click)="signOut()">
+      <ion-note class="config">Sign out</ion-note>
+    </ion-item>
+  </ion-list>
+
+  <!-- type 0 -->
+  <ion-list class="ilist2" *ngIf="type == 0">
+    <ion-item class="iitem">
+      <ion-avatar item-start (click)="showUserPhoto(user.photoURL)">
+        <img class="cursor" [src]="user.photoURL ? user.photoURL : 'assets/img/google_default_photo.jpg'">
+      </ion-avatar>
+      <h2>{{user.name}}</h2>
+      <p>{{user.email}}</p>
+    </ion-item>
+
+    <ion-item class="iitem">
+      UID
+      <ion-note item-end>
+          <h5>{{user.uid}}</h5>
+      </ion-note>
+    </ion-item>
+    
+    <ion-item class="iitem">
+      가입 날짜
+      <ion-note item-end>
+        {{user.createDate}}
+      </ion-note>
+    </ion-item>
+    
+    <ion-item class="iitem">
+      마지막 로그인
+      <ion-note item-end>
+        {{user.lastSigninDate}}
+      </ion-note>
+    </ion-item>
+    
+    <ion-item class="iitem">
+      인증 상태
+      <ion-note item-end class="cursor" [ngClass]="'auth-color-' + (user.authenticated ? 'green' : 'red')"
+        (click)="changeAuth()">
+        {{user.authenticated ? "승인" : "대기"}}
+      </ion-note>
+    </ion-item>
+
+  </ion-list>
+</ion-content>

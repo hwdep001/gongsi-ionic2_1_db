@@ -1,0 +1,20 @@
+page-userList {
+    .icontent {
+        user-select: text;
+
+        .ilist {
+
+            ion-item-sliding {
+                background-color: #e9ebee;
+            } 
+            
+            .ilist-item {
+                background-color: #e9ebee;
+            }
+        }
+    }
+
+    .cursor {
+        cursor: pointer;
+    }
+}

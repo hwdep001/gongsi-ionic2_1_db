@@ -1,0 +1,46 @@
+page-signin {
+    
+        .icontent {
+            user-select: text;
+    
+            .scroll-content {
+                padding-bottom: 0px !important;
+    
+                background-image: url("../assets/img/signin_bg.jpg");
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+                
+                justify-content: center;
+                display: flex!important;
+                align-items: center!important;
+            }
+    
+            .ilist {
+                width: 30%;
+                min-width: 270px;
+                
+                background-color: rgba(255, 255, 255, 0.0);
+    
+                ion-item {
+                    background-color: transparent;
+    
+                    ion-input {
+                        color: white;
+                    }
+    
+                    .signInBtn {
+                        background-color: rgba(1, 189, 146, 0.72);
+                        height: 35px;
+                        font-size: 15px;
+    
+                        ion-icon {
+                            padding-right: 15px;
+                        }
+                    }
+                }
+            }
+            
+        }
+    }
+    

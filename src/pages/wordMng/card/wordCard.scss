@@ -1,0 +1,104 @@
+page-wordCard {
+    
+        .icontent {
+    
+            .icontent-middle {
+                height: 100%;
+                justify-content: center;
+                display: flex!important;
+                align-items: center!important;
+    
+                .icard {
+                    max-width: 450px;
+                    height: 80%;
+    
+                    border-top: 3px solid;
+                    border-radius: 3px;
+    
+                    .icard-header {
+                        height: 15%;
+    
+                        padding: 13px 16px;
+    
+                        ion-col {
+                            padding: 0px;
+                            font-size: 20px;
+                        }
+                    }
+    
+                    .icard-content {
+                        height: 70%;
+                    }
+    
+                    .head {
+                        font-size: 25px;
+                    }
+    
+                    .body {
+                    }
+    
+                    .icard-foot {
+                        height: 15%;
+                        border-top: 1px solid;
+                        border-color: rgba(196, 196, 196, 0.69);
+                        
+                        .foot-up {}
+                        .foot-desc-col {
+                            .foot-desc-note {
+                                color: gray;
+                            }
+                        }
+                        .foot-down{}
+                    }
+                }
+    
+                padding-bottom: 43px !important;
+            }
+    
+            .icontent-foot {
+                .menu {
+                    background-color: #e9ebee;
+                    position: absolute;
+                    bottom: 0px;
+                    text-align: center;
+                    margin-bottom: 20px;
+        
+                    ion-label {
+                        margin: 0px;
+                    }
+        
+                    ion-grid {
+                        padding: 0px;
+                    }
+        
+                    ion-col {
+                        padding: 0px;
+                    }
+    
+                    ion-note {
+                        color: gray;
+                    }
+                }
+            }
+    
+            .icard-border-2 {
+                border-color: map-get($colors, level-2) !important;
+            }
+            .icard-border-1 {
+                border-color: map-get($colors, level-1) !important;
+            }
+            .icard-border0 {
+                border-color: map-get($colors, level0) !important;
+            }
+            .icard-borderundefined {
+                border-color: map-get($colors, level0) !important;
+            }
+            .icard-border1 {
+                border-color: map-get($colors, level1) !important;
+            }
+            .icard-border2 {
+                border-color: map-get($colors, level2) !important;
+            }
+        }
+    }
+    

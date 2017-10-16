@@ -1,0 +1,55 @@
+<ion-split-pane when="md">
+    <ion-menu [content]="content" id="menu" *ngIf="_auth.isSignedIn">
+        <ion-header>
+            <ion-toolbar>
+            <ion-title>{{menuTitle.header}}</ion-title>
+            </ion-toolbar>
+        </ion-header>
+
+        <ion-content>
+            <ion-list *ngIf="navigatePages != null">
+                <ion-list-header>
+                    {{menuTitle.navigate}}
+                </ion-list-header>
+                <button menuClose ion-item *ngFor="let p of navigatePages" (click)="openPage(p)">
+                    <ion-icon item-start [name]="p.icon" [color]="isActive(p)"></ion-icon>
+                    {{p.title}}
+                </button>
+            </ion-list>
+
+            <ion-list *ngIf="navigatePages != null">
+                <ion-list-header>
+                    {{menuTitle.study}}
+                </ion-list-header>
+                <button menuClose ion-item *ngFor="let p of studyPages" (click)="openPage(p)">
+                    <ion-icon item-start [name]="p.icon" [color]="isActive(p)"></ion-icon>
+                    {{p.title}}
+                </button>
+            </ion-list>
+
+            <ion-list *ngIf="adminPages != null">
+                <ion-list-header>
+                    {{menuTitle.admin}}
+                </ion-list-header>
+                <button menuClose ion-item *ngFor="let p of adminPages" (click)="openPage(p)">
+                    <ion-icon item-start [name]="p.icon" [color]="isActive(p)"></ion-icon>
+                    {{p.title}}
+                </button>
+            </ion-list>
+
+            <ion-list *ngIf="accountPages != null">
+                <ion-list-header>
+                    {{menuTitle.account}}
+                </ion-list-header>
+                <button menuClose ion-item *ngFor="let p of accountPages" (click)="openPage(p)">
+                    <ion-icon item-start [name]="p.icon" [color]="isActive(p)"></ion-icon>
+                    {{p.title}}
+                </button>
+            </ion-list>
+        </ion-content>
+    </ion-menu>
+    
+    <!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+    <!-- <ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav> -->
+    <ion-nav [root]="rootPage" #content main></ion-nav>
+</ion-split-pane>

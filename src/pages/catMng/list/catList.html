@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title *ngIf="sub" >{{sub.data().name}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="icontent">
+
+  <ion-list class="ilist">
+    <ion-item class="ilist-item cursor" *ngFor="let cat of cats" (click)="clickCat(cat)" >
+      {{cat.data().name}}
+    </ion-item>
+  </ion-list>
+
+</ion-content>

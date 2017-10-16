@@ -1,0 +1,24 @@
+page-lecList {
+    .icontent {
+
+        .ilist {
+            
+            .ilist-item {
+                background-color: #e9ebee;
+
+                ion-note {
+                    color: black;
+                }
+            }
+        }
+    }
+
+    .margin-100 {
+        .fixed-content {margin-top: 100px !important;}
+        .scroll-content {margin-top: 100px !important;}
+    }
+
+    .cursor {
+        cursor: pointer;
+    }
+}
